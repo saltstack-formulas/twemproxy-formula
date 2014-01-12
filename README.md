@@ -1,4 +1,4 @@
 twemproxy-formula
 =================
 
-Salt formula to set up Twemproxy
+Salt formula to set up Twemproxy from source.
