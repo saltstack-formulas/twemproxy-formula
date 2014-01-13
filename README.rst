@@ -3,23 +3,36 @@ twemproxy
 
 Download, build and install Twemproxy from source.
 
-> See the full [Salt Formulas installation and usage instructions][1]
+.. note::
 
-[1]: http://docs.saltstack.com/topics/conventions/formulas.html "Salt Formulas"
+    See the full `Salt Formulas installation and usage instructions
+    <http://docs.saltstack.com/topics/conventions/formulas.html>`_.
 
 Available states
-----------------
+================
+.. contents::
+    :local:
 
 ``twemproxy``
+-------------
 
- * Install ``twemproxy`` aka ``nutcracker``.
+    Installs the ``twemproxy`` (aka ``nutcracker``) light-weight proxy for
+    the memcached protocol.
+
+Notes
+=====
 
 Building and installing software from source as root (which is what this state
 does) is generally considered poor-practice. A better solution is to build
-twemproxy and package it using your distribution's tools and make it available
-in a local package repository. Then you can simple use:
+twemproxy and package it using your distribution's tools, then make it
+available in a local package repository. Then you can simply use:
 
-```yaml
-twemproxy:
-  pkg.installed
-```
+.. code-block:: yaml
+
+    twemproxy:
+      pkg.installed
+
+Tested On
+=========
+
+- CentOS release 6.5 (Final)
