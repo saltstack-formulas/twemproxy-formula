@@ -10,14 +10,15 @@ Download, build and install Twemproxy from source.
 
 Available states
 ================
+
 .. contents::
     :local:
 
 ``twemproxy``
 -------------
 
-    Installs the ``twemproxy`` (aka ``nutcracker``) light-weight proxy for
-    the memcached protocol.
+Installs the ``twemproxy`` (aka ``nutcracker``) light-weight proxy for
+the memcached protocol.
 
 Notes
 =====
