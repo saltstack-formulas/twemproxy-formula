@@ -1,14 +1,18 @@
 {% set twemproxy = salt['grains.filter_by']({
     'Debian': {
-        'src_directory': '/usr/local/src',
-        'version': '0.3.0',
-        'source_hash': 'sha1=b17f973ff2de9bd5e21417786a1449bea1557fba',
-        'config_directory': '/usr/local/etc/nutcracker',
+        'build': {
+            'src_directory': '/usr/local/src',
+            'version': '0.3.0',
+            'source_hash': 'sha1=b17f973ff2de9bd5e21417786a1449bea1557fba',
+            'config_directory': '/usr/local/etc/nutcracker',
+        }
     },
     'RedHat': {
-        'src_directory': '/usr/local/src',
-        'version': '0.3.0',
-        'source_hash': 'sha1=b17f973ff2de9bd5e21417786a1449bea1557fba',
-        'config_directory': '/usr/local/etc/nutcracker',
+        'build': {
+            'src_directory': '/usr/local/src',
+            'version': '0.3.0',
+            'source_hash': 'sha1=b17f973ff2de9bd5e21417786a1449bea1557fba',
+            'config_directory': '/usr/local/etc/nutcracker',
+        }
     },
 }, merge=salt['pillar.get']('twemproxy')) %}

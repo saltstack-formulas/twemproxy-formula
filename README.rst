@@ -14,7 +14,7 @@ Available states
 .. contents::
     :local:
 
-``twemproxy``
+``twemproxy.build``
 -------------
 
 Installs the ``twemproxy`` (aka ``nutcracker``) light-weight proxy for

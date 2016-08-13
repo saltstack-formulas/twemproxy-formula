@@ -1,6 +1,7 @@
 # ``twemproxy`` formula configuration
 twemproxy:
-  version: 0.3.0
-  source_hash: sha1=b17f973ff2de9bd5e21417786a1449bea1557fba
-  src_directory: /usr/local/src
-  config_directory: /usr/local/etc/nutcracker
+  build:
+    version: 0.3.0
+    source_hash: sha1=b17f973ff2de9bd5e21417786a1449bea1557fba
+    src_directory: /usr/local/src
+    config_directory: /usr/local/etc/nutcracker
