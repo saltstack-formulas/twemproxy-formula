@@ -1,14 +1,30 @@
-{% set twemproxy = salt['grains.filter_by']({
+{% set os_map = salt['grains.filter_by']({
     'Debian': {
-        'src_directory': '/usr/local/src',
-        'version': '0.3.0',
-        'source_hash': 'sha1=b17f973ff2de9bd5e21417786a1449bea1557fba',
-        'config_directory': '/usr/local/etc/nutcracker',
+        'config_file': '/etc/nutcracker/nutcracker.yml',
+        'pid_dir': '/var/run/nutcracker',
+        'pkg': 'nutcracker',
+        'service': 'nutcracker',
+        'user': 'nutcracker',
+        'group': 'nutcracker',
     },
-    'RedHat': {
-        'src_directory': '/usr/local/src',
-        'version': '0.3.0',
-        'source_hash': 'sha1=b17f973ff2de9bd5e21417786a1449bea1557fba',
-        'config_directory': '/usr/local/etc/nutcracker',
+}, merge=salt['pillar.get']('twemproxy:lookup')) %}
+
+{# Settings dictionary with default values #}
+{% set defaults = {
+    'twemproxy': {
+        'config': {
+        },
+        'build': {
+            'src_directory': '/usr/local/src',
+            'version': '0.3.0',
+            'source_hash': 'sha1=b17f973ff2de9bd5e21417786a1449bea1557fba',
+            'config_directory': '/usr/local/etc/nutcracker',
+        }
     },
-}, merge=salt['pillar.get']('twemproxy')) %}
+} %}
+
+{# Merge os_map into settings dictionary #}
+{% do defaults.twemproxy.update(os_map) %}
+
+{# Update settings defaults from pillar data #}
+{% set twemproxy = salt['pillar.get']('twemproxy', default=defaults.twemproxy, merge=True) %}

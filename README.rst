@@ -1,7 +1,8 @@
 twemproxy
 =========
 
-Download, build and install Twemproxy from source.
+A salt formula that installs and configures twemproxy (nutcracker),
+the memcached and redis proxy written by twitter.
 
 .. note::
 
@@ -17,11 +18,31 @@ Available states
 ``twemproxy``
 -------------
 
-Installs the ``twemproxy`` (aka ``nutcracker``) light-weight proxy for
-the memcached protocol.
+Shortcut which includes all states listed below.
+
+``twemproxy.config``
+-------------
+
+Manages the configuration file.
+As twemproxy uses yaml in cofuguration it will fully match provided pillar.
+
+``twemproxy.pkg``
+-------------
+
+Install twemproxy package
+
+``twemproxy.service``
+-------------
+
+Manages twemproxy service
+
+``twemproxy.build``
+-------------
+
+Download, build and install Twemproxy from source.
 
 Notes
-=====
+-----
 
 Building and installing software from source as root (which is what this state
 does) is generally considered poor-practice. A better solution is to build
@@ -34,6 +55,6 @@ available in a local package repository. Then you can simply use:
       pkg.installed
 
 Tested On
-=========
+---------
 
 - CentOS release 6.5 (Final)

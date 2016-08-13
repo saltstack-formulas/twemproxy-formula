@@ -1,6 +1,22 @@
 # ``twemproxy`` formula configuration
 twemproxy:
-  version: 0.3.0
-  source_hash: sha1=b17f973ff2de9bd5e21417786a1449bea1557fba
-  src_directory: /usr/local/src
-  config_directory: /usr/local/etc/nutcracker
+  lookup:
+    pkg: custom-twemproxy
+  build:
+    version: 0.3.0
+    source_hash: sha1=b17f973ff2de9bd5e21417786a1449bea1557fba
+    src_directory: /usr/local/src
+    config_directory: /usr/local/etc/nutcracker
+  config:
+    main:
+      listen: 127.0.0.1:11212
+      hash: fnv1a_64
+      distribution: ketama
+      timeout: 1000
+      backlog: 1024
+      preconnect: true
+      server_connections: 128
+      auto_eject_hosts: false
+      server_retry_timeout: 1000
+      servers:
+        - 127.0.0.1:12212:1 localmemcached
