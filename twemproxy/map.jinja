@@ -1,6 +1,7 @@
 {% set os_map = salt['grains.filter_by']({
     'Debian': {
         'config_file': '/etc/nutcracker/nutcracker.yml',
+        'default_file': '/etc/default/nutcracker',
         'pid_dir': '/var/run/nutcracker',
         'pkg': 'nutcracker',
         'service': 'nutcracker',
@@ -12,6 +13,9 @@
 {# Settings dictionary with default values #}
 {% set defaults = {
     'twemproxy': {
+        'default': {
+            'DAEMON_OPTS': '',
+        },
         'config': {
         },
         'build': {

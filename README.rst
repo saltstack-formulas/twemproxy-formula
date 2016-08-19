@@ -26,6 +26,11 @@ Shortcut which includes all states listed below.
 Manages the configuration file.
 As twemproxy uses yaml in cofuguration it will fully match provided pillar.
 
+``twemproxy.default_file``
+-------------
+
+Manages the default file.
+
 ``twemproxy.pkg``
 -------------
 
